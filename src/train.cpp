@@ -1,7 +1,6 @@
 // Copyright 2021 NNTU-CS
 #include "train.h"
 #include <iostream>
-using namespace std;
 
 Train::Train() {
         first = nullptr;
@@ -30,19 +29,12 @@ int Train::getLength() {
     int length = 1;
     Cage* current = first->next;
     while (current != first) {
+        ++countOp;
         length++;
         current = current->next;
     }
     return length;
 }
 int Train::getOpCount() {
-    return countOp;
-}
-void Train::moveNext() {
-    first = first->next;
-    countOp++;
-}
-void Train::movePrev() {
-    first = first->prev;
-    countOp++;
+    return countOp * 2;
 }
