@@ -61,6 +61,6 @@ void Train::back(Cage* cur, int& count) {
     while (count != 0) {
         cur = cur->prev;
         --count;
-        countOp++; 
+        countOp++;
     }
 }
