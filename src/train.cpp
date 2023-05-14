@@ -52,7 +52,7 @@ int Train::getOpCount() {
 }
 
 
-void Train::checkF(Cage* cur, int&& count) {
+void Train::checkF(Cage* cur, int& count) {
   if (cur->light == false) {
     ++count;
     ++countOp;
