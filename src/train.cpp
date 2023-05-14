@@ -24,13 +24,25 @@ void Train::addCage(bool light) {
   }
 }
 
+int Train::getOpCount() {
+  return countOp;
+}
+
+
+void Train::checkF(Cage* cur, int* count) {
+  if (cur->light == false) {
+    ++count;
+    ++countOp;
+  }
+}
+
 int Train::getLength() {
   int count = 1;
   Cage* cur = first;
   cur -> light = true;
   while (cur) {
     cur = cur -> next;
-    checkF(cur, *count);
+    checkF(cur, &count);
     if (cur -> light == true) {
       cur -> light = false;
       ++countOp;
@@ -48,14 +60,4 @@ int Train::getLength() {
   return 0;
 }
 
-int Train::getOpCount() {
-  return countOp;
-}
 
-
-void Train::checkF(Cage* cur, int* count) {
-  if (cur->light == false) {
-    ++count;
-    ++countOp;
-  }
-}
